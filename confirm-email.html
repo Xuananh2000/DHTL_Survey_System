@@ -1,5 +1,11 @@
+
+
+                      <!-- Xác nhận email muốn đổi mật khẩu -->
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +13,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/Validator.js"></script>
+    <style>
+        
+    </style>
 </head>
+
 <body>
     <div class="main" style="background-image: url(img/bg.png); background-size: cover;">
 
@@ -18,24 +28,14 @@
           <div class="spacer"></div>
   
           <div class="form-group">
-            <label for="email" class="form-label">Email<p>*</p></label>
+            <label for="email" class="form-label">Email xác nhận<p>*</p></label>
             <input id="email" name="email" type="text" placeholder="Enter your e-mail address" class="form-control">
             <span class="form-message"></span>
           </div>
-  
-          <div class="form-group">
-            <label for="password" class="form-label">Mật khẩu<p>*</p></label>
-            <input id="password" name="password" type="password" placeholder="Enter your password" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <button class="form-submit" onclick="confimLogin()"><a href="#" style="color: white; text-decoration: none;"">Đăng nhập</a></button>
-          <p class="desc">Forget your <a href="confirm-email.html" style="color: aqua;">Password?</a></p>
-          <p class="desc">Don't have an account? <a href="signup.html" style="color: aqua;">Sign up</a></p>
+          <button class="form-submit"><a href="login.html" style="color: white; text-decoration: none;"">Xác nhận</a></button>
         </form>
-        <div id="snackbar">Sai tên đăng nhập hoặc mật khẩu</div>
       </div>
-      
+    
       <script>
   
         document.addEventListener('DOMContentLoaded', function () {
@@ -47,7 +47,6 @@
             errorSelector: '.form-message',
             rules: [
               Validator.isEmail('#email'),
-              Validator.minLength('#password', 6),
             ],
             onSubmit: function (data) {
               console.log(data);
@@ -57,4 +56,5 @@
   
       </script>
 </body>
+
 </html>

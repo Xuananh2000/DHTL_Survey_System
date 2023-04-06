@@ -3,7 +3,7 @@ class DBConnection{
 
     private $host = "localhost";
     private $username = "root";
-    private $password = "";
+    private $password = "1234";
     private $database = "form_builder_db";
     
     public $conn;
