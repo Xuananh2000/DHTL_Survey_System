@@ -61,21 +61,10 @@ ob_end_flush();
         <hr class="container hr_container">
 
         <div class="container container_box">
-            <div class="col-md-12">
-                
 
-
-                <div class="home">
-                    <div class="container form_active-box">
-                        <?php include("./".$page.".php") ?>
-                    </div>
-
-
-
-                </div>
-
+            <div class="container ">
+                <?php include("./".$page.".php") ?>
             </div>
-
 
         </div>
         <div class="bottom_search">

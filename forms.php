@@ -1,55 +1,49 @@
 <div class="top_search">
 
-                    <div class="search_box">
-                        <h4>Mời nhập mã xác thực</h4>
-                        <div class="search_bar">
-                            <input type="text " class="form-control form-control-lg form-control-borderless"
-                                placeholder="Enter your  code here...">
-                        </div>
-                    </div>
-                </div>
-<div class="col-md-12">
+    <div class="search_box">
+        <h4>Mời nhập mã xác thực</h4>
+        <div class="search_bar">
+            <input type="text " class="form-control form-control-lg form-control-borderless"
+                placeholder="Enter your  code here...">
+        </div>
+    </div>
+</div>
 
-    <div class="container results_box">
 
-        <div class="container">
-            <?php 
+<div class="container results_box">
+    <?php 
             $i = 1;
                 $forms = $db->conn->query("SELECT * FROM `form_list` order by date(date_created) desc");
                 while($row = $forms->fetch_assoc()):
             ?>
-            <div class="row " style="display: flex; justify-content: center;">
+    <div class="container">
 
-                <div class="col-xl-8">
-                    <div class="results_content">
-                        <a class="txt_results_content" href="./form.php?code=<?php echo $row['form_code'] ?>">
-                            <h3><?php echo $row['title'] ?></h3>
-                            <div class="row">
-                                <div class="col-6 owner">
-                                    <h4>Mã code</h4>
-                                    <h5><?php echo $row['form_code'] ?></h5>
-                                </div>
+        <div class="row " style="display: flex; justify-content: center;">
 
-                                <div class="col-6 created_date">
-                                    <h4>Ngày tạo</h4>
-                                    <h5><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></h5>
-                                </div>
+            <div class="col-xl-8">
+                <div class="results_content">
+                    <a class="txt_results_content" href="./form.php?code=<?php echo $row['form_code'] ?>">
+                        <h3><?php echo $row['title'] ?></h3>
+                        <div class="row">
+                            <div class="col-6 owner">
+                                <h4>Mã code</h4>
+                                <h5><?php echo $row['form_code'] ?></h5>
                             </div>
-                        </a>
-                    </div>
+
+                            <div class="col-6 created_date">
+                                <h4>Ngày tạo</h4>
+                                <h5><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-
             </div>
-            <?php endwhile;  ?>
-
         </div>
 
-       
 
     </div>
 
-</div>
-<div class="results_box_bottom">
+    <?php endwhile;  ?>
 
 </div>
 <style>
