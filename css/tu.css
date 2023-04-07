@@ -484,7 +484,7 @@
     clear: both;
     display: table;
   }
-  .submit_edt_fullname,.submit_edt_username{
+  #submit_edt_fullname,#submit_edt_username{
     background-color: #0da9ed;
     padding: 0px 8px;
     color: #fff;

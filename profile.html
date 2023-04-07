@@ -20,45 +20,45 @@
         <nav class="navbar navbar-light p-0">
 
             <div class="container">
-            
+
                 <div class="nav_left">
-            
+
                     <a class="btn_home_page" href="index.php">Trang chủ</a>
-            <a class="btn_toFormpage" href="listforms.php">Các khảo sát</a>
-            
+                    <a class="btn_toFormpage" href="listforms.php">Các khảo sát</a>
+
                 </div>
-            
+
                 <div class="nav_right">
-            
+
                     <div class="logout_btn">
                         <a href="">
                             <h5>Đăng xuất</h5>
                         </a>
-            
-            
+
+
                     </div>
-            
+
                     <div class="profile_btn">
                         <i class="far fa-user"></i>
-                            <a href="profile.html">
-                                <h5>Anh Xuân</h5>
-                            </a>
-    
-    
-                        </div>
-            
+                        <a href="profile.html">
+                            <h5>Anh Xuân</h5>
+                        </a>
+
+
+                    </div>
+
                 </div>
             </div>
-            </nav>
+        </nav>
 
-            <hr class="container hr_container">
+        <hr class="container hr_container">
 
 
         <div class="container-fluid ">
 
 
             <section class="form_user">
-
+                <form id="myForm">
 
 
                 <div class="container py-5">
@@ -108,7 +108,7 @@
                                             <p class="text-muted mb-0 full_name">Nguyen Anh Xuan</p>
                                             <div class="box_edit_fullname">
                                                 <input type="text" id="full_name" name="edt_full_name" required>
-                                                <button type="submit" class="submit_edt_fullname">Lưu</button>
+                                                <button type="submit" id="submit_edt_fullname">Lưu</button>
                                             </div>
 
                                         </div>
@@ -127,7 +127,7 @@
                                             <p class="text-muted mb-0 txt_user_name">Anh Xuan</p>
                                             <div class="box_edit_username">
                                                 <input type="text" id="user_name" name="edt_user_name" required>
-                                                <button type="submit" class="submit_edt_username">Lưu</button>
+                                                <button type="submit" id="submit_edt_username">Lưu</button>
                                             </div>
                                         </div>
                                         <div class="pen-to-square col-sm-2 edit_username-btn">
@@ -142,6 +142,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
             </section>
 
         </div>
@@ -175,6 +177,30 @@
 </body>
 
 <script>
+
+    document.getElementById("submit_edt_fullname").addEventListener("click", function (event) {
+        var name = document.getElementById("full_name").value;
+        alert(name);
+        $.ajax({
+            type : "POST",  //type of method
+            url  : "./control/update.php",  //your page
+            data : { name : name},// passing the values
+        });
+    }
+    );
+
+    document.getElementById("submit_edt_username").addEventListener("click", function (event) {
+        var username = document.getElementById("user_name").value;
+        alert(username);
+        $.ajax({
+            type : "POST",  //type of method
+            url  : "./control/update.php",  //your page
+            data : { username : username},// passing the values
+        });
+    }
+    );
+
+
     const editFullNameBtn = document.querySelector('.edit_fullname-btn');
     const editUserNameBtn = document.querySelector('.edit_username-btn');
     const editGenderBtn = document.querySelector('.edit_gender-btn');
@@ -224,6 +250,9 @@
             modal.style.display = "none";
         }
     }
+
+
+
 
 </script>
 

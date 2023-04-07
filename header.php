@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="./fontawesome-free/css/all.min.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./DataTables/datatables.min.css">
@@ -10,3 +9,4 @@
 <script src="./js/bootstrap.min.js"></script>
 <script src="./DataTables/datatables.min.js"></script>
 <script src="./js/script.js"></script>
+
