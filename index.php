@@ -1,116 +1,59 @@
 <?php
-
-ob_start();
-require_once('./classes/DBConnection.php');
-$db = new DBConnection();
-
-$page = isset($_GET['p']) ? $_GET['p'] : "forms";
-ob_end_flush();
-
+require_once ('layouts/header.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<style>
 
-</style>
+<div class="main" style="background-image: url(img/img_bg.png); background-size: cover;">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Form Builder</title>
-    <?php include('./header.php') ?>
-</head>
+<form action="control/dangnhap.php" method="POST" class="form" >
+  <div class="spacer"></div>
+  <h3 class="heading">Hệ Thống Khảo Sát Đại Học Thủy Lợi</h3>
 
-<body>
-    <div class="home">
+  <div class="spacer"></div>
 
-        <img src="img/trang-chu.png">
+  <div class="form-group">
+    <label for="email" class="form-label">Tài khoản Email<p>*</p></label>
+    <input id="email" name="email" type="text" placeholder="Nhập tài khoản email" class="form-control">
+    <span class="form-message"></span>
+  </div>
 
-        <nav class="navbar navbar-light p-0 ">
+  <div class="form-group">
+    <label for="password" class="form-label">Mật khẩu<p>*</p></label>
+    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+    <span class="form-message"></span>
+  </div>
 
-            <div class="container">
+  <button class="form-submit" type="submit">
+    Đăng nhập
+  </button>
+  <p class="desc"> <a href="confirm-email.html" style="color: aqua;"> Quên mật khẩu?</a></p>
+  <p class="desc">Chưa có tài khoản? <a href="signup.php" style="color: aqua;">Đăng kí</a></p>
+</form>
+<div id="snackbar">Sai tên đăng nhập hoặc mật khẩu</div>
+</div>
 
-                <div class="nav_left">
+<script>
 
-                    <a class="btn_home_page" href="index.php">Trang chủ</a>
-
-                    <a class="btn_toFormpage" href="./listforms.php">Các khảo sát</a>
-
-                </div>
-
-                <div class="nav_right">
-
-                    <div class="logout_btn">
-                        <a href="">
-                            <h5>Đăng xuất</h5>
-                        </a>
+document.addEventListener('DOMContentLoaded', function () {
 
 
-                    </div>
+  Validator({
+    form: '#form-2',
+    formGroupSelector: '.form-group',
+    errorSelector: '.form-message',
+    rules: [
+      Validator.isEmail('#email'),
+      Validator.minLength('#password', 6),
+    ],
+    onSubmit: function (data) {
+      console.log(data);
+    }
+  });
+});
 
-                    <div class="profile_btn">
-                    <i class="far fa-user"></i>
-                        <a href="profile.html">
-                            <h5>Anh Xuân</h5>
-                        </a>
+</script>
 
-
-                    </div>
-
-                </div>
-            </div>
-        </nav>
-
-
-        <hr class="container hr_container">
-
-        <div class="container form_active-box">
-
-
-            <div class="  join_form-box">
-
-                <h4> <a class="nav-link" href="./listforms.php">Tham gia khảo sát</a></h4>
-
-            </div>
-
-            <div class="create_form-box">
-
-                <h4><a class="nav-link" href="./listforms.php?p=manage_forms">Tạo Khảo sát </a></h4>
-
-            </div>
-
-        </div>
-
-        <div class="container about-us_box">
-            <div class="about-us_box-right">
-                <div class="txt_about-us">
-                    <h1>About Us</h1>
-
-                </div>
-
-                <div class="container about-us_form">
-                    <div class=" content_about-us">
-
-                        <h4>Sản phẩm này được xây dựng và đóng góp bởi</h4>
-                        <ul>
-                            <li>Nguyễn Khả Tú</li>
-                            <li>Nguyễn Văn Đông</li>
-                            <li>Nguyễn Anh XUân</li>
-                            <li>Dương Hoàng Yến</li>
-                            <li>Phạm Thanh Hải</li>
-                            <li>Vũ Văn Chức</li>
-                            <li>Đặng Quang Minh</li>
-                            <li>Trần Trung Thành</li>
-                            <li>Nguyễn Tuấn Dũng</li>
-                            <li>Đới Xuân Đạt</li>
-                            <li>Nguyễn Hữu Bách</li>
-                            <li>Đặng Đức Trường</li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-</body>
+<?php
+require_once ('layouts/footer.php');
+?>
 
 </html>
