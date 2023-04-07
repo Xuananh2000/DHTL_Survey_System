@@ -236,7 +236,7 @@ $(function() {
             success: function(resp) {
                 if (typeof resp == 'object' && resp.status == 'success') {
                     alert("Form successfully saved")
-                    location.href = "./"
+                    location.href = "./listforms.php"
                 } else {
                     console.log(resp)
                     alert("an error occured")

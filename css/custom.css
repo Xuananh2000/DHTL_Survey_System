@@ -76,3 +76,11 @@ input[type="radio"] {
     opacity: .5;
     cursor: move;
 }
+.form-title{
+    height: 40px; 
+    background-color: aqua;
+    border-radius: 10px;
+}
+ul li{
+    text-decoration: none;
+}

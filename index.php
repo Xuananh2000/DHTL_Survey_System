@@ -1,59 +1,57 @@
-<?php 
-
-ob_start();
-require_once('./classes/DBConnection.php');
-$db = new DBConnection();
-
-$page = isset($_GET['p']) ? $_GET['p'] : "forms";
-ob_end_flush();
-
+<?php
+require_once ('layouts/header.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<style>
-    /* canvas {
-        height: 250px !important
-    } */
-    
-    table th,
-    table td {
-        padding: 3px !important
-    }
-</style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Form Builder</title>
-    <?php include('./header.php') ?>
-</head>
+<div class="main" style="background-image: url(img/img_bg.png); background-size: cover;">
 
-<body class=''>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 border-bottom border-light mb-2" id="top-nav">
-        <a class="navbar-brand" href="./">Form Builder App</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<form action="control/dangnhap.php" method="POST" class="form" >
+  <div class="spacer"></div>
+  <h3 class="heading">Hệ Thống Khảo Sát Đại Học Thủy Lợi</h3>
 
-        <div class="collapse navbar-collapse" id="nav-menu">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item nav-forms">
-                    <a class="nav-link" href="./index.php?p=forms"><i class="fa fa-th-list"></i> Forms</a>
-                </li>
-                <li class="nav-item nav-manage_forms">
-                    <a class="nav-link" href="./index.php?p=manage_forms"><i class="fa fa-plus"></i> Create New</a>
-                </li>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <?php include("./".$page.".php") ?>
-    </div>
-</body>
+  <div class="spacer"></div>
+
+  <div class="form-group">
+    <label for="email" class="form-label">Tài khoản Email<p>*</p></label>
+    <input id="email" name="email" type="text" placeholder="Nhập tài khoản email" class="form-control">
+    <span class="form-message"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="form-label">Mật khẩu<p>*</p></label>
+    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+    <span class="form-message"></span>
+  </div>
+
+  <button class="form-submit" type="submit">
+    Đăng nhập
+  </button>
+  <p class="desc"> <a href="confirm-email.html" style="color: aqua;"> Quên mật khẩu?</a></p>
+  <p class="desc">Chưa có tài khoản? <a href="signup.php" style="color: aqua;">Đăng kí</a></p>
+</form>
+<div id="snackbar">Sai tên đăng nhập hoặc mật khẩu</div>
+</div>
+
 <script>
-    $(function(){
-        var page = "<?php echo $page ?>";
 
-        $('#nav-menu').find(".nav-item.nav-"+page).addClass("active")
-    })
+document.addEventListener('DOMContentLoaded', function () {
+
+
+  Validator({
+    form: '#form-2',
+    formGroupSelector: '.form-group',
+    errorSelector: '.form-message',
+    rules: [
+      Validator.isEmail('#email'),
+      Validator.minLength('#password', 6),
+    ],
+    onSubmit: function (data) {
+      console.log(data);
+    }
+  });
+});
+
 </script>
-</html>
+
+<?php
+require_once ('layouts/footer.php');
+?>
