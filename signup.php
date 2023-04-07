@@ -1,5 +1,5 @@
 <?php
-require_once('layouts/header.php')
+require_once('layouts/head.php')
 ?>
     <div class="main" style="background-image: url(img/img_bg.png); background-size: cover;">
         <form action="control/dangki.php" method="POST" class="form" id="form-2">

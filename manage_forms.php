@@ -14,7 +14,7 @@
         <div class="row">
             <div class="card col-md-12 border border-primary">
                 <div class="card-body">
-                    <h3 contenteditable="true" title="Enter Title"   class="text-center" id="form-title">Enter Title Here</h3>
+                    <h3 contenteditable="true" title="Enter Title" class="text-center" id="form-title">Enter Title Here</h3>
                     <hr class="border-primary">
                     <p contenteditable="true"  id="form-description" title="Enter Description" class="form-description text-center" >Enter Description Here</p>
                 </div>
@@ -93,7 +93,7 @@
     <div class="card-footer">
         <div class="w-100 d-flex justify-content-between align-items-center">
             <div class="form-check">
-                <input class="form-check-input req-item" type="checkbox" value="" >
+                <input class="form-check-input req-item" type="checkbox" value="">
                 <label class="form-check-label req-chk" for="">
                     * Requiruired
                 </label>
