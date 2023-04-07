@@ -1,65 +1,63 @@
-<h3>Form List</h3>
-<hr class="border-primary">
+<div class="top_search">
+
+                    <div class="search_box">
+                        <h4>Mời nhập mã xác thực</h4>
+                        <div class="search_bar">
+                            <input type="text " class="form-control form-control-lg form-control-borderless"
+                                placeholder="Enter your  code here...">
+                        </div>
+                    </div>
+                </div>
 <div class="col-md-12">
-    <table id="forms-tbl" class="table table-stripped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>DateTime</th>
-                <th>Code</th>
-                <th>Title</th>
-                <th>URL</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <div class="container results_box">
+
+        <div class="container">
             <?php 
             $i = 1;
                 $forms = $db->conn->query("SELECT * FROM `form_list` order by date(date_created) desc");
                 while($row = $forms->fetch_assoc()):
             ?>
-            <tr>
-                <td class="text-center"><?php echo $i++ ?></td>
-                <td><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></td>
-                <td><?php echo $row['form_code'] ?></td>
-                <td><?php echo $row['title'] ?></td>
-                <td><a
-                        href="./form.php?code=<?php echo $row['form_code'] ?>">form.php?code=<?php echo $row['form_code'] ?></a>
-                </td>
-                <td class='text-center'>
-                    <p id="my-paragraph">Nhấn vào đây để hiển thị danh sách Action</p>
-                    <ul id="my-list" class="hidden">
-                        <li>   
-                        <a style="background-color: rgba(83, 128, 234, 1);" href="javascript:void(0)" class="btn btn-default border rem_form btn_origin" data-id='<?php echo $row['form_code'] ?>'><span class="fa fa-trash text-danger"></span></a>
+            <div class="row " style="display: flex; justify-content: center;">
 
-</li>
-                        <li>                        
-                            <a style="background-color: rgba(83, 128, 234, 1);" href="./index.php?p=view_responses&code=<?php echo $row['form_code'] ?>" class="btn btn-default border btn_origin">Responses</a>
-</li>
-                        <li>    
-                        <a style="background-color: rgba(83, 128, 234, 1);" href="./index.php?p=view_form&code=<?php echo $row['form_code'] ?>" class="btn btn-default border btn_origin">Chỉnh sửa</a>
+                <div class="col-xl-8">
+                    <div class="results_content">
+                        <a class="txt_results_content" href="./form.php?code=<?php echo $row['form_code'] ?>">
+                            <h3><?php echo $row['title'] ?></h3>
+                            <div class="row">
+                                <div class="col-6 owner">
+                                    <h4>Mã code</h4>
+                                    <h5><?php echo $row['form_code'] ?></h5>
+                                </div>
 
-</li>
-                        <li>                        
-                            <a style="background-color: rgba(83, 128, 234, 1);" class="btn btn-default border btn_origin" href="statistical_user.html">Thống kê người tham gia khảo sát</a>
-</li>
-                        <li>                        
-                            <a style="background-color: rgba(83, 128, 234, 1);" class="btn btn-default border btn_origin" href="statistical_answer.html">Thống kê câu trả lời theo câu hỏi . </a>
-</li>
-                    </ul>
-                    
-                </td>
-            </tr>
+                                <div class="col-6 created_date">
+                                    <h4>Ngày tạo</h4>
+                                    <h5><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
             <?php endwhile;  ?>
-        </tbody>
-    </table>
-</div>
 
+        </div>
+
+       
+
+    </div>
+
+</div>
+<div class="results_box_bottom">
+
+</div>
 <style>
-    .hidden {
+.hidden {
     display: none;
-  }
-  ul {
+}
+
+ul {
     list-style-type: none;
 }
 </style>

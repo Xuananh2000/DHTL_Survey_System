@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ob_start();
 require_once('./classes/DBConnection.php');
@@ -22,34 +22,26 @@ ob_end_flush();
 </head>
 
 <body>
-    <div class="statistics">
-        <nav
-            class=" navbar navbar-expand-lg navbar-dark bg-dark w-100 border-bottom border-light mb-2 navbar navbar-light p-0">
+    <div class="home">
 
-            <div class="container-fluid">
+        <img src="img/trang-chu.png">
 
-                <a class="navbar-brand" href="./">Trang chủ</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-menu"
-                    aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-light p-0 ">
 
+            <div class="container">
 
-                <div class="collapse navbar-collapse" id="nav-menu">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item nav-forms">
-                            <a class="nav-link" href="./index.php?p=forms"><i class="fa fa-th-list"></i> Forms</a>
-                        </li>
-                        <li class="nav-item nav-manage_forms">
-                            <a class="nav-link" href="./index.php?p=manage_forms"><i class="fa fa-plus"></i> Create
-                                New</a>
-                        </li>
+                <div class="nav_left">
+
+                    <a class="btn_home_page" href="index.html">Trang chủ</a>
+
+                    <a class="btn_toFormpage" href="./listforms.php">Các khảo sát</a>
+
                 </div>
 
                 <div class="nav_right">
 
                     <div class="logout_btn">
-                        <a href="#">
+                        <a href="">
                             <h5>Đăng xuất</h5>
                         </a>
 
@@ -57,7 +49,6 @@ ob_end_flush();
                     </div>
 
                     <div class="profile_btn">
-
 
                         <a href="profile.html">
                             <h5>Anh Xuân</h5>
@@ -71,54 +62,55 @@ ob_end_flush();
         </nav>
 
 
-        <div class="home">
-            <div class="container form_active-box">
-                <?php include("./".$page.".php") ?>
-            </div>
+        <hr class="container hr_container">
+
+        <div class="container form_active-box">
 
 
-            <div class="container about-us_box" >
-                <div class="about-us_box-right">
-                    <div class="txt_about-us">
-                        <h1>About Us</h1>
+            <div class="  join_form-box">
 
-                    </div>
-
-                    <div class="container-fluid about-us_form">
-
-                        <div class=" content_about-us">
-                            <h4>Sản phẩm này được xây dựng và đóng góp bởi</h4>
-
-                            <ul>
-                                <li>Nguyễn Khả Tú</li>
-                                <li>Nguyễn Văn Đông</li>
-                                <li>Nguyễn Anh XUân</li>
-                                <li>Dương Hoàng Yến</li>
-                                <li>Phạm Thanh Hải</li>
-                                <li>Vũ Văn Chức</li>
-                                <li>Đặng Quang Minh</li>
-                                <li>Trần Trung Thành</li>
-                                <li>Nguyễn Tuấn Dũng</li>
-                                <li>Đới Xuân Đạt</li>
-                                <li>Nguyễn Hữu Bách</li>
-                                <li>Đặng Đức Trường</li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+                <h4> <a class="nav-link" href="./listforms.php">Tham gia khảo sát</a></h4>
 
             </div>
+
+            <div class="  create_form-box">
+
+                <h4><a class="nav-link" href="./listforms.php?p=manage_forms">Tạo Khảo sát </a></h4>
+
+            </div>
+
         </div>
 
-</body>
-<script>
-$(function() {
-    var page = "<?php echo $page ?>";
+        <div class="container about-us_box">
+            <div class="about-us_box-right">
+                <div class="txt_about-us">
+                    <h1>About Us</h1>
 
-    $('#nav-menu').find(".nav-item.nav-" + page).addClass("active")
-})
-</script>
+                </div>
+
+                <div class="container about-us_form">
+                    <div class=" content_about-us">
+
+                        <h4>Sản phẩm này được xây dựng và đóng góp bởi</h4>
+                        <ul>
+                            <li>Nguyễn Khả Tú</li>
+                            <li>Nguyễn Văn Đông</li>
+                            <li>Nguyễn Anh XUân</li>
+                            <li>Dương Hoàng Yến</li>
+                            <li>Phạm Thanh Hải</li>
+                            <li>Vũ Văn Chức</li>
+                            <li>Đặng Quang Minh</li>
+                            <li>Trần Trung Thành</li>
+                            <li>Nguyễn Tuấn Dũng</li>
+                            <li>Đới Xuân Đạt</li>
+                            <li>Nguyễn Hữu Bách</li>
+                            <li>Đặng Đức Trường</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+</body>
 
 </html>
