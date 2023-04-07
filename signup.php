@@ -8,7 +8,7 @@ require_once('layouts/head.php')
           <div class="spacer"></div>
           <div class="form-group">
             <label for="fullname" class="form-label">Name<p>*</p></label>
-            <input id="fullname" name="fullname" type="text" placeholder="Họ Tên" class="form-control">
+            <input id="fullname" name="fullname" type="text" placeholder="Enter your name" class="form-control">
             <span class="form-message"></span>
           </div>
           <div class="form-group">
@@ -32,6 +32,10 @@ require_once('layouts/head.php')
           <p class="desc">Do you have an account? <a href="index.php" style="color: aqua;">Sign in</a></p>
         </form>
       </div>
+
+<?php
+require_once('layouts/footer.php')
+?>
       <script>
         document.addEventListener('DOMContentLoaded', function () {
           Validator({
@@ -39,7 +43,7 @@ require_once('layouts/head.php')
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
-            Validator.isRequired('#fullname', 'please enter your name'),
+            Validator.isRequired('#fullname', 'Please enter your name'),
             Validator.isEmail('#email'),
             Validator.minLength('#password', 6),
             Validator.isRequired('#password_confirmation'),
@@ -50,6 +54,3 @@ require_once('layouts/head.php')
         });
         });
       </script>
-<?php
-require_once('layouts/footer.php')
-?>
