@@ -4,7 +4,7 @@ require_once ('layouts/header.php');
 
 <div class="main" style="background-image: url(img/img_bg.png); background-size: cover;">
 
-<form action="control/dangnhap.php" method="POST" class="form" >
+<form action="control/dangnhap.php" method="POST" class="form" id="form-2">
   <div class="spacer"></div>
   <h3 class="heading">Hệ Thống Khảo Sát Đại Học Thủy Lợi</h3>
 
@@ -22,10 +22,8 @@ require_once ('layouts/header.php');
     <span class="form-message"></span>
   </div>
 
-  <button class="form-submit" type="submit">
-    Đăng nhập
-  </button>
-  <p class="desc"> <a href="confirm-email.html" style="color: aqua;"> Quên mật khẩu?</a></p>
+  <button class="form-submit" type="submit">Đăng nhập</button>
+  <p class="desc"> <a href="forgetPassword.php" style="color: aqua;"> Quên mật khẩu?</a></p>
   <p class="desc">Chưa có tài khoản? <a href="signup.php" style="color: aqua;">Đăng kí</a></p>
 </form>
 <div id="snackbar">Sai tên đăng nhập hoặc mật khẩu</div>
@@ -44,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
       Validator.isEmail('#email'),
       Validator.minLength('#password', 6),
     ],
-    onSubmit: function (data) {
-      console.log(data);
-    }
+
   });
 });
 

@@ -44,33 +44,19 @@ ob_end_flush();
                         <a href="">
                             <h5>Đăng xuất</h5>
                         </a>
-
-
                     </div>
-
                     <div class="profile_btn">
-
                         <a href="profile.html">
                             <h5>Anh Xuân</h5>
                         </a>
-
-
                     </div>
-
                 </div>
             </div>
         </nav>
-
-
         <hr class="container hr_container">
-
         <div class="container form_active-box">
-
-
             <div class="  join_form-box">
-
                 <h4> <a class="nav-link" href="./listforms.php">Tham gia khảo sát</a></h4>
-
             </div>
 
             <div class="  create_form-box">

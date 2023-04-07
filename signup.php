@@ -2,7 +2,7 @@
 require_once('layouts/header.php')
 ?>
     <div class="main" style="background-image: url(img/img_bg.png); background-size: cover;">
-        <form action="" method="POST" class="form" id="form-2">
+        <form action="control/dangki.php" method="POST" class="form" id="form-2">
           <div class="spacer"></div>
           <h3 class="heading">Hệ Thống Khảo Sát Đại Học Thủy Lợi</h3>
           <div class="spacer"></div>
@@ -27,9 +27,9 @@ require_once('layouts/header.php')
             <span class="form-message"></span>
           </div>
           
-          <button class="form-submit" onclick="confimLogin()"><a href="#" style="color: white; text-decoration: none;">Đăng kí</a></button>
+          <button class="form-submit" type="submit">Đăng kí</button>
           <div class="spacer"></div>
-          <p class="desc">Đã có tài khoản? <a href="index.php" style="color: aqua;">Đăng kí</a></p>
+          <p class="desc">Đã có tài khoản? <a href="index.php" style="color: aqua;">Đăng nhập</a></p>
         </form>
       </div>
       <script>
@@ -44,13 +44,9 @@ require_once('layouts/header.php')
             Validator.minLength('#password', 6),
             Validator.isRequired('#password_confirmation'),
             Validator.isConfirmed('#password_confirmation', function () {
-              return document.querySelector('#form-1 #password').value;
+              return document.querySelector('#form-2 #password').value;
             }, 'Mật khẩu nhập lại không chính xác')
           ],
-          onSubmit: function (data) {
-            // Call API
-            console.log(data);
-          }
         });
         });
       </script>

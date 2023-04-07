@@ -1,8 +1,15 @@
 <?php
-require_once ('../classes/DBConnection.php');
+require_once ('../classes/config.php');
 if(isset($_POST)){
+    
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $check = $conn->query("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'")->rowCount();
-    echo $check;
+    $check = $db->query("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'")->rowCount();
+
+    if($check > 0){
+        echo 'ok';
+    }else{
+        echo "<script type='text/javascript'>
+        alert('Tài khoản hoặc mật khẩu sai');window.location = '../index.php';</script>";
+    }
 }
