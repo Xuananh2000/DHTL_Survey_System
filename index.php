@@ -32,9 +32,7 @@ require_once ('layouts/header.php');
 </div>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
-
 
   Validator({
     form: '#form-2',
