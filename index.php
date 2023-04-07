@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ob_start();
 require_once('./classes/DBConnection.php');
@@ -11,14 +11,7 @@ ob_end_flush();
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    /* canvas {
-        height: 250px !important
-    } */
-    
-    table th,
-    table td {
-        padding: 3px !important
-    }
+
 </style>
 
 <head>
@@ -28,32 +21,96 @@ ob_end_flush();
     <?php include('./header.php') ?>
 </head>
 
-<body class=''>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 border-bottom border-light mb-2" id="top-nav">
-        <a class="navbar-brand" href="./">Form Builder App</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body>
+    <div class="home">
 
-        <div class="collapse navbar-collapse" id="nav-menu">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item nav-forms">
-                    <a class="nav-link" href="./index.php?p=forms"><i class="fa fa-th-list"></i> Forms</a>
-                </li>
-                <li class="nav-item nav-manage_forms">
-                    <a class="nav-link" href="./index.php?p=manage_forms"><i class="fa fa-plus"></i> Create New</a>
-                </li>
+        <img src="img/trang-chu.png">
+
+        <nav class="navbar navbar-light p-0 ">
+
+            <div class="container">
+
+                <div class="nav_left">
+
+                    <a class="btn_home_page" href="index.html">Trang chủ</a>
+
+                    <a class="btn_toFormpage" href="./listforms.php">Các khảo sát</a>
+
+                </div>
+
+                <div class="nav_right">
+
+                    <div class="logout_btn">
+                        <a href="">
+                            <h5>Đăng xuất</h5>
+                        </a>
+
+
+                    </div>
+
+                    <div class="profile_btn">
+
+                        <a href="profile.html">
+                            <h5>Anh Xuân</h5>
+                        </a>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <hr class="container hr_container">
+
+        <div class="container form_active-box">
+
+
+            <div class="  join_form-box">
+
+                <h4> <a class="nav-link" href="./listforms.php">Tham gia khảo sát</a></h4>
+
+            </div>
+
+            <div class="  create_form-box">
+
+                <h4><a class="nav-link" href="./listforms.php?p=manage_forms">Tạo Khảo sát </a></h4>
+
+            </div>
+
         </div>
-    </nav>
-    <div class="container-fluid">
-        <?php include("./".$page.".php") ?>
-    </div>
-</body>
-<script>
-    $(function(){
-        var page = "<?php echo $page ?>";
 
-        $('#nav-menu').find(".nav-item.nav-"+page).addClass("active")
-    })
-</script>
+        <div class="container about-us_box">
+            <div class="about-us_box-right">
+                <div class="txt_about-us">
+                    <h1>About Us</h1>
+
+                </div>
+
+                <div class="container about-us_form">
+                    <div class=" content_about-us">
+
+                        <h4>Sản phẩm này được xây dựng và đóng góp bởi</h4>
+                        <ul>
+                            <li>Nguyễn Khả Tú</li>
+                            <li>Nguyễn Văn Đông</li>
+                            <li>Nguyễn Anh XUân</li>
+                            <li>Dương Hoàng Yến</li>
+                            <li>Phạm Thanh Hải</li>
+                            <li>Vũ Văn Chức</li>
+                            <li>Đặng Quang Minh</li>
+                            <li>Trần Trung Thành</li>
+                            <li>Nguyễn Tuấn Dũng</li>
+                            <li>Đới Xuân Đạt</li>
+                            <li>Nguyễn Hữu Bách</li>
+                            <li>Đặng Đức Trường</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+</body>
+
 </html>

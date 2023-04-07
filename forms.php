@@ -1,67 +1,98 @@
-<h3>Form List</h3>
-<hr class="border-primary">
-<div class="col-md-12">
-    <table id="forms-tbl" class="table table-stripped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>DateTime</th>
-                <th>Code</th>
-                <th>Title</th>
-                <th>URL</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
+<div class="top_search">
+
+    <div class="search_box">
+        <h4>Mời nhập mã xác thực</h4>
+        <div class="search_bar">
+            <input type="text " class="form-control form-control-lg form-control-borderless"
+                placeholder="Enter your  code here...">
+        </div>
+    </div>
+</div>
+
+
+<div class="container results_box">
+    <?php 
             $i = 1;
                 $forms = $db->conn->query("SELECT * FROM `form_list` order by date(date_created) desc");
                 while($row = $forms->fetch_assoc()):
             ?>
-                <tr>
-                    <td class="text-center"><?php echo $i++ ?></td>
-                    <td><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></td>
-                    <td><?php echo $row['form_code'] ?></td>
-                    <td><?php echo $row['title'] ?></td>
-                    <td><a href="./form.php?code=<?php echo $row['form_code'] ?>">form.php?code=<?php echo $row['form_code'] ?></a></td>
-                    <td class='text-center'>
-                        <a href="./index.php?p=view_form&code=<?php echo $row['form_code'] ?>" class="btn btn-default border">View</a>
-                        <a href="./index.php?p=view_responses&code=<?php echo $row['form_code'] ?>" class="btn btn-default border">Responses</a>
-                        <a href="javascript:void(0)" class="btn btn-default border rem_form" data-id='<?php echo $row['form_code'] ?>'><span class="fa fa-trash text-danger"></span></a>
-                    </td>
-                </tr>
-            <?php endwhile;  ?>
-        </tbody>
-    </table>
+    <div class="container">
+
+        <div class="row " style="display: flex; justify-content: center;">
+
+            <div class="col-xl-8">
+                <div class="results_content">
+                    <a class="txt_results_content" href="./form.php?code=<?php echo $row['form_code'] ?>">
+                        <h3><?php echo $row['title'] ?></h3>
+                        <div class="row">
+                            <div class="col-6 owner">
+                                <h4>Mã code</h4>
+                                <h5><?php echo $row['form_code'] ?></h5>
+                            </div>
+
+                            <div class="col-6 created_date">
+                                <h4>Ngày tạo</h4>
+                                <h5><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <?php endwhile;  ?>
+
 </div>
+<style>
+.hidden {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
+</style>
+
 <script>
-    $(function(){
-        $('#forms-tbl').dataTable();
-        $('.rem_form').click(function(){
-            start_loader();
-            var _conf = confirm("Are you sure to delete this data?")
-            if(_conf == true){
-                $.ajax({
-                    url:'classes/Forms.php?a=delete_form',
-                    method:'POST',
-                    data:{form_code: $(this).attr('data-id')},
-                    dataType:'json',
-                    error:err=>{
-                        console.log(err)
+const paragraph = document.getElementById("my-paragraph");
+const list = document.getElementById("my-list");
+
+paragraph.addEventListener("click", () => {
+    list.classList.toggle("hidden");
+});
+
+$(function() {
+    $('#forms-tbl').dataTable();
+    $('.rem_form').click(function() {
+        start_loader();
+        var _conf = confirm("Are you sure to delete this data?")
+        if (_conf == true) {
+            $.ajax({
+                url: 'classes/Forms.php?a=delete_form',
+                method: 'POST',
+                data: {
+                    form_code: $(this).attr('data-id')
+                },
+                dataType: 'json',
+                error: err => {
+                    console.log(err)
+                    alert("an error occured")
+                },
+                success: function(resp) {
+                    if (resp.status == 'success') {
+                        alert("Data successfully deleted");
+                        location.reload()
+                    } else {
+                        console.log(resp)
                         alert("an error occured")
-                    },
-                    success:function(resp){
-                        if(resp.status == 'success'){
-                            alert("Data successfully deleted");
-                            location.reload()
-                        }else{
-                            console.log(resp)
-                        alert("an error occured")
-                        }
                     }
-                })
-            }
-            end_loader()
-        })
+                }
+            })
+        }
+        end_loader()
     })
+})
 </script>

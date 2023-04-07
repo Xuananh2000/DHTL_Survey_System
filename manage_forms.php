@@ -14,9 +14,9 @@
         <div class="row">
             <div class="card col-md-12 border border-primary">
                 <div class="card-body">
-                    <h3 contenteditable="true" title="Enter Title" class="text-center" id="form-title">Enter Title Here</h3>
+                    <h3 contenteditable="true" title="Enter Title"   class="text-center" id="form-title">Enter Title Here</h3>
                     <hr class="border-primary">
-                    <p contenteditable="true"  id="form-description" title="Enter Description" class="form-description text-center">Enter Description Here</p>
+                    <p contenteditable="true"  id="form-description" title="Enter Description" class="form-description text-center" >Enter Description Here</p>
                 </div>
                 
             </div>
@@ -42,7 +42,7 @@
                         <hr class="border-dark">
                         <div class="row ">
                             <div class="form-group choice-field col-md-12">
-                                <textarea name="q[0]" class="form-control col-sm-12" cols="30" rows="5" placeholder="Write your answer here"></textarea>
+                                <textarea  name="q[0]" class="form-control col-sm-12" cols="30" rows="5" placeholder="Write your answer here"></textarea>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                     * Requiruired
                                 </label>
                             </div>
-                            <button class="btn btn-default border rem-q-item" type="button"><i class="fa fa-trash"></i></button>
+                            <button  class="btn btn-default border rem-q-item" type="button"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
                 </div>
