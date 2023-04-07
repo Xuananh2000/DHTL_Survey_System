@@ -7,7 +7,7 @@ if(isset($_POST)){
     $check = $db->query("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'")->rowCount();
 
     if($check > 0){
-        echo 'ok';
+        header("Location:../views/home.php");
     }else{
         echo "<script type='text/javascript'>
         alert('Tài khoản hoặc mật khẩu sai');window.location = '../index.php';</script>";

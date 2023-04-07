@@ -1,27 +1,6 @@
-<?php
 
-ob_start();
-require_once('./classes/DBConnection.php');
-$db = new DBConnection();
+    <?php include('../layouts/header.php') ?>
 
-$page = isset($_GET['p']) ? $_GET['p'] : "forms";
-ob_end_flush();
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<style>
-
-</style>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Form Builder</title>
-    <?php include('./header.php') ?>
-</head>
-
-<body>
     <div class="home">
 
         <img src="img/trang-chu.png">
@@ -96,7 +75,4 @@ ob_end_flush();
                     </div>
                 </div>
             </div>
-
-</body>
-
-</html>
+<?php ?>
