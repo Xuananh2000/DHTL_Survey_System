@@ -1,13 +1,3 @@
-<div class="top_search">
-
-    <div class="search_box">
-        <h4>Tìm kiếm khảo sát</h4>
-        <div class="search_bar">
-            <input type="text " class="form-control form-control-lg form-control-borderless"
-                placeholder="Enter your  code here...">
-        </div>
-    </div>
-</div>
 
 
 <div class="container results_box">
@@ -26,21 +16,24 @@
                         <h3><?php echo $row['title'] ?></h3>
                         <div class="row">
                             <div class="col-6 owner">
-                                <h4>Mã code</h4>
+                                <h4>Code</h4>
                                 <h5><?php echo $row['form_code'] ?></h5>
                             </div>
 
                             <div class="col-6 created_date">
-                                <h4>Ngày tạo</h4>
+                                <h4>Create at</h4>
                                 <h5><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></h5>
                             </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-3 m-auto">
+                            <a href="./listforms.php?p=view_responses&code=<?php echo $row['form_code'] ?>" class="btn btn-default border">All Responses</a>
+                        </div>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <?php endwhile;  ?>

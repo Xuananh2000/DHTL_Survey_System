@@ -17,7 +17,7 @@ if(!isset($_SESSION['user'])){
             </a>
         </div>
         <div class="profile_btn">
-            <a href="profile.html">
+            <a href="profile.php">
                 <h5>
                     <?php
                     echo $_SESSION['user']['name'];

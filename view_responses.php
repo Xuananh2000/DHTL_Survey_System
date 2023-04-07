@@ -19,7 +19,7 @@
                     <td class="text-center"><?php echo $i++ ?></td>
                     <td><?php echo date("M d,Y h:i A",strtotime($row['date_created'])) ?></td>
                     <td class='text-center'>
-                        <a href="./index.php?p=view_response&code=<?php echo $row['form_code'] ?>&id=<?php echo $row['id'] ?>" class="btn btn-default border">View</a>
+                        <a href="./view.php?p=view_response&code=<?php echo $row['form_code'] ?>&id=<?php echo $row['id'] ?>" class="btn btn-default border">View</a>
                     </td>
                 </tr>
             <?php endwhile;  ?>
