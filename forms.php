@@ -1,7 +1,7 @@
 <div class="top_search">
 
     <div class="search_box">
-        <h4>Mời nhập mã xác thực</h4>
+        <h4>Tìm kiếm khảo sát</h4>
         <div class="search_bar">
             <input type="text " class="form-control form-control-lg form-control-borderless"
                 placeholder="Enter your  code here...">

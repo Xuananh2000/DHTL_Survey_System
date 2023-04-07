@@ -14,9 +14,7 @@ ob_end_flush();
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    /* canvas {
-        height: 250px !important
-    } */
+
     
     table th,
     table td {
@@ -40,10 +38,23 @@ ob_end_flush();
         <?php 
         include './forms/'.$code.'.html';
         ?>
-        <div class="w-100 d-flex justify-content-center">
+        
+    </div>
+    <div class="container statistical_bottom">
+
+            <div class="statistical_bottom-left">
+                <a href="statistical_user.html" class="export-btn">Thống kê người tham gia</a>
+            </div>
+
+            <div class="w-100 d-flex justify-content-center">
             <button class="btn btn-primary" form="form-data" id="">Sumbit</button>
         </div>
-    </div>
+            <div class="statistical_bottom-right">
+                <a href="statistical_answer.html" class="export-btn">Thống kê câu trả lời</a>
+               
+            </div>
+
+        </div>
 </body>
 
 </html>

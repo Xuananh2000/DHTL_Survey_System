@@ -45,8 +45,7 @@ ob_end_flush();
                     </div>
 
                     <div class="profile_btn">
-
-
+                    <i class="far fa-user"></i>
                         <a href="profile.html">
                             <h5>Anh Xuân</h5>
                         </a>

@@ -53,7 +53,8 @@ $(function() {
             success: function(resp) {
                 if (typeof resp == 'object' && resp.status == 'success') {
                     alert("Form successfully Submitted")
-                    location.reload()
+                    // location.reload()
+                    location.href = "./listforms.php"
                 } else {
                     console.log(resp)
                     alert("an error occured")

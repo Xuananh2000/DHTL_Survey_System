@@ -32,7 +32,7 @@ ob_end_flush();
 
                 <div class="nav_left">
 
-                    <a class="btn_home_page" href="index.html">Trang chủ</a>
+                    <a class="btn_home_page" href="index.php">Trang chủ</a>
 
                     <a class="btn_toFormpage" href="./listforms.php">Các khảo sát</a>
 
@@ -49,7 +49,7 @@ ob_end_flush();
                     </div>
 
                     <div class="profile_btn">
-
+                    <i class="far fa-user"></i>
                         <a href="profile.html">
                             <h5>Anh Xuân</h5>
                         </a>
@@ -73,7 +73,7 @@ ob_end_flush();
 
             </div>
 
-            <div class="  create_form-box">
+            <div class="create_form-box">
 
                 <h4><a class="nav-link" href="./listforms.php?p=manage_forms">Tạo Khảo sát </a></h4>
 

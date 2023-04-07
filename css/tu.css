@@ -96,6 +96,10 @@
     align-items: center;
     justify-content: center;
   }
+  .profile_btn a{
+    margin-left: 16px;
+    margin-top: 4px;
+  }
   
   .form_active-box{
     display: flex;
@@ -252,7 +256,7 @@
     justify-content: space-between;
     padding-bottom: 40px;
   }
-  .export-btn{
+  .export-btn, .exportCsv-btn{
     width: max-content;
     height: 70px;
     border-radius: 50%;
@@ -263,13 +267,11 @@
     border-radius: 40px;
     padding: 16px 32px;
   }
-  .export-btn h4{
+  .export-btn,  .exportCsv-btn h4{
     color: #fff;
   }
-  .search_page{
-    background-color: #EBF0FF;
-  
-  }
+
+
   .container_box{
     height: max-content;
     min-height: 800px;
