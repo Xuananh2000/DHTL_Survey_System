@@ -56,11 +56,6 @@ require_once('layouts/navbar.php');
                             <li>Đới Xuân Đạt</li>
                             <li>Nguyễn Hữu Bách</li>
                             <li>Đặng Đức Trường</li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
 <?php
-    require_once('layouts/footer.php');
+require_once('layouts/footer.php');
 ?>
