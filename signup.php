@@ -34,7 +34,7 @@
 						<form id="signup-form" >
 							<div class="form-group">
 								<label for="email" class="control-label text-dark">Email</label>
-								<input type="text" id="email" name="email" class="form-control form-control-sm" required>
+								<input type="email" id="email" name="email" class="form-control form-control-sm" required>
                                 <small id="msg"></small>
 							</div>
                             <div class="form-group">
@@ -106,7 +106,6 @@
 		    type: 'POST',
 			success:function(resp){
 				if(resp == 1){
-					alert_toast('Data successfully saved.',"success");
 					setTimeout(function(){
 						location.replace('login.php')
 					},750)
