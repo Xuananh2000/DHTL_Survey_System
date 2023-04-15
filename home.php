@@ -1,61 +1,63 @@
-<?php
+<?php include('db_connect.php') ?>
+<!-- Info boxes -->
+<?php if($_SESSION['login_type'] == 1): ?>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
-ob_start();
-
-require_once('./classes/DBConnection.php');
-$db = new DBConnection();
-
-$page = isset($_GET['p']) ? $_GET['p'] : "forms";
-ob_end_flush();
-require_once('./header.php');
-require_once('layouts/navbar.php');
-
-?>
-    <div class="home">
-        <img src="img/trang-chu.png">
-        <hr class="container hr_container">
-
-        <div class="container form_active-box">
-
-
-            <div class="  join_form-box">
-
-                <h4> <a class="nav-link" href="./listforms.php">Take the survey</a></h4>
-
+              <div class="info-box-content">
+                <span class="info-box-text">Total Subscribers</span>
+                <span class="info-box-number">
+                  <?php echo $conn->query("SELECT * FROM users where type = 3")->num_rows; ?>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-poll-h"></i></span>
 
-            <div class="  create_form-box">
-
-                <h4><a class="nav-link" href="./listforms.php?p=manage_forms">Create new form </a></h4>
-
+              <div class="info-box-content">
+                <span class="info-box-text">Total Survey</span>
+                 <span class="info-box-number">
+                  <?php echo $conn->query("SELECT * FROM survey_set")->num_rows; ?>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+      </div>
 
-        </div>
+<?php else: ?>
+	 <div class="col-12">
+          <div class="card">
+          	<div class="card-body">
+          		Welcome <?php echo $_SESSION['login_name'] ?>!
+          	</div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-poll-h"></i></span>
 
-        <div class="container about-us_box">
-            <div class="about-us_box-right">
-                <div class="txt_about-us">
-                    <h1>About Us</h1>
-
-                </div>
-
-                <div class="container about-us_form">
-                    <div class=" content_about-us">
-
-                        <h4>This product is built and contributed by</h4>
-                        <ul>
-                            <li>Nguyễn Khả Tú</li>
-                            <li>Nguyễn Văn Đông</li>
-                            <li>Nguyễn Anh XUân</li>
-                            <li>Dương Hoàng Yến</li>
-                            <li>Phạm Thanh Hải</li>
-                            <li>Vũ Văn Chức</li>
-                            <li>Đặng Quang Minh</li>
-                            <li>Trần Trung Thành</li>
-                            <li>Nguyễn Tuấn Dũng</li>
-                            <li>Đới Xuân Đạt</li>
-                            <li>Nguyễn Hữu Bách</li>
-                            <li>Đặng Đức Trường</li>
-<?php
-require_once('layouts/footer.php');
-?>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Surveys Taken</span>
+                <span class="info-box-number">
+                  <?php echo $conn->query("SELECT distinct(survey_id) FROM answers  where user_id = {$_SESSION['login_id']}")->num_rows; ?>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+      </div>
+          
+<?php endif; ?>
