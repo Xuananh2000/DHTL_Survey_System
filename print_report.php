@@ -1,4 +1,4 @@
-<?php include 'header.php' ?>
+<?php include 'layouts/header.php' ?>
 <?php include 'config/db_connect.php' ?>
 <?php 
 $qry = $conn->query("SELECT * FROM survey_set where id = ".$_GET['id'])->fetch_array();

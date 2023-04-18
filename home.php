@@ -10,7 +10,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Total Subscribers</span>
                 <span class="info-box-number">
-                  <?php echo $conn->query("SELECT * FROM users where type = 3")->num_rows; ?>
+                  <?php echo $conn->query("SELECT * FROM users where type = 2")->num_rows; ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
