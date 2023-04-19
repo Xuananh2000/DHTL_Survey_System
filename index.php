@@ -1,55 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php session_start() ?>
 <?php
-require_once ('layouts/header.php');
+	if(!isset($_SESSION['login_id']))
+	    header('location:login.php');
+	include 'layouts/header.php'
 ?>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <?php include 'layouts/topbar.php' ?>
+  <?php include 'layouts/sidebar.php' ?>
 
-<div class="main" style="background-image: url(img/img_bg.png); background-size: cover;">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  	 <div class="toast" id="alert_toast" role="alert" aria-live="assertive" aria-atomic="true">
+	    <div class="toast-body text-white">
+	    </div>
+	  </div>
+    <div id="toastsContainerTopRight" class="toasts-top-right fixed"></div>
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><?php echo $title ?></h1>
+          </div><!-- /.col -->
 
-<form action="control/dangnhap.php" method="POST" class="form" >
-  <div class="spacer"></div>
-  <h3 class="heading">Hệ Thống Khảo Sát Đại Học Thủy Lợi</h3>
+        </div><!-- /.row -->
+            <hr class="border-primary">
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-  <div class="spacer"></div>
-
-  <div class="form-group">
-    <label for="email" class="form-label">Tài khoản Email<p>*</p></label>
-    <input id="email" name="email" type="text" placeholder="Nhập tài khoản email" class="form-control">
-    <span class="form-message"></span>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+         <?php
+          $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+          include $page.'.php';
+          ?>
+      </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+    <div class="modal fade" id="confirm_modal" role='dialog'>
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+      </div>
+      <div class="modal-body">
+        <div id="delete_content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="password" class="form-label">Mật khẩu<p>*</p></label>
-    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-    <span class="form-message"></span>
+  <div class="modal fade" id="uni_modal" role='dialog'>
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title"></h5>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+      </div>
+    </div>
   </div>
+  <div class="modal fade" id="uni_modal_right" role='dialog'>
+    <div class="modal-dialog modal-full-height  modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="fa fa-arrow-right"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewer_modal" role='dialog'>
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+              <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
+              <img src="" alt="">
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- /.content-wrapper -->
 
-  <button class="form-submit" type="submit">
-    Đăng nhập
-  </button>
-  <p class="desc"> <a href="confirm-email.html" style="color: aqua;"> Quên mật khẩu?</a></p>
-  <p class="desc">Chưa có tài khoản? <a href="signup.php" style="color: aqua;">Đăng kí</a></p>
-</form>
-<div id="snackbar">Sai tên đăng nhập hoặc mật khẩu</div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2023 <a href="">Team#5</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>TLU Survey System</b>
+    </div>
+  </footer>
 </div>
+<!-- ./wrapper -->
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  Validator({
-    form: '#form-2',
-    formGroupSelector: '.form-group',
-    errorSelector: '.form-message',
-    rules: [
-      Validator.isEmail('#email'),
-      Validator.minLength('#password', 6),
-    ],
-    onSubmit: function (data) {
-      console.log(data);
-    }
-  });
-});
-
-</script>
-
-<?php
-require_once ('layouts/footer.php');
-?>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<!-- Bootstrap -->
+<?php include 'layouts/footer.php' ?>
+</body>
+</html>
