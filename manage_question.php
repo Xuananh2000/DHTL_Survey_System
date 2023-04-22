@@ -262,8 +262,7 @@
 		$(function () {
 		$('#manage-question').submit(function(e){
 			e.preventDefault()
-			start_load()
-			// $('#msg').html('')
+		    $('input').removeClass("border-danger")
 			$.ajax({
 				url:'ajax.php?action=save_question',
 				data: new FormData($(this)[0]),
@@ -279,7 +278,7 @@
 							location.reload()
 						},1500)
 					}
-				}
+				} 
 			})
 		})
 

@@ -36,7 +36,7 @@
 						<form id="signup-form" >
 							<div class="form-group">
 								<label for="email" class="control-label text-dark">Email</label>
-								<input type="email" id="email" name="email" class="form-control form-control-sm" required>
+								<input onblur="validateEmail(this);" type="email" id="email" name="email" class="form-control form-control-sm" required>
                                 <small id="msg"></small>
 							</div>
                             <div class="form-group">
@@ -84,6 +84,19 @@
 		$(this).val(val)
 	})
 	
+	function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+	
 	// validate password
 	$('[name="password"],[name="cpass"]').keyup(function(){
 		var pass = $('[name="password"]').val()
@@ -98,6 +111,7 @@
 			}
 		}
 	})
+	
 	$('#signup-form').submit(function(e){
 		e.preventDefault()
 		$('input').removeClass("border-danger")

@@ -8,7 +8,7 @@ $answers = $conn->query("SELECT distinct(survey_id) from answers where user_id =
 		<div class="input-group input-group-sm col-sm-5">
           <input type="text" class="form-control" id="filter" placeholder="Enter keyword...">
           <span class="input-group-append">
-            <button type="button" class="btn btn-primary btn-flat" id="search">Searh</button>
+            <button type="button" class="btn btn-primary btn-flat" id="search">Search</button>
           </span>
         </div>
 	</div>
