@@ -1,4 +1,4 @@
-<?php include 'db_connect.php' ?>
+<?php include 'config/db_connect.php' ?>
 <?php 
 $answers = $conn->query("SELECT distinct(survey_id) from answers where user_id ={$_SESSION['login_id']}");
 $ans = array();

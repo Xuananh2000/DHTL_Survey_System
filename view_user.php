@@ -1,8 +1,8 @@
-<?php include 'db_connect.php' ?>
+<?php include 'config/db_connect.php' ?>
 <?php
 if(isset($_GET['id'])){
 	$type_arr = array('',"Admin","Staff","Subscriber");
-	$qry = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM users where id = ".$_GET['id'])->fetch_array();
+	$qry = $conn->query("SELECT * FROM users where id = ".$_GET['id'])->fetch_array();
 foreach($qry as $k => $v){
 	$$k = $v;
 }
@@ -12,19 +12,19 @@ foreach($qry as $k => $v){
 	<table class="table">
 		<tr>
 			<th>Name:</th>
-			<td><b><?php echo ucwords($name) ?></b></td>
+			<td><b><?php echo($name) ?></b></td>
 		</tr>
 		<tr>
 			<th>Email:</th>
 			<td><b><?php echo $email ?></b></td>
 		</tr>
 		<tr>
-			<th>Contact:</th>
-			<td><b><?php echo $contact ?></b></td>
+			<th>Phone:</th>
+			<td><b><?php echo $phone ?></b></td>
 		</tr>
 		<tr>
-			<th>Address:</th>
-			<td><b><?php echo $address ?></b></td>
+			<th>Created_at:</th>
+			<td><b><?php echo $date_created ?></b></td>
 		</tr>
 		<tr>
 			<th>User Role:</th>

@@ -1,4 +1,5 @@
-<?php include('db_connect.php') ?>
+<?php include('config/db_connect.php') ?>
+
 <!-- Info boxes -->
 <?php if($_SESSION['login_type'] == 1): ?>
         <div class="row">

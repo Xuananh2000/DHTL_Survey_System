@@ -1,5 +1,5 @@
-<?php include 'header.php' ?>
-<?php include 'db_connect.php' ?>
+<?php include 'config/db_connect.php' ?>
+<?php include 'layouts/header.php' ?>
 <?php 
 $qry = $conn->query("SELECT * FROM survey_set where id = ".$_GET['id'])->fetch_array();
 foreach($qry as $k => $v){
@@ -100,7 +100,7 @@ while($row=$answers->fetch_assoc()){
 		e.preventDefault()
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=save_answer',
+			url:'config/ajax.php?action=save_answer',
 			method:'POST',
 			data:$(this).serialize(),
 			success:function(resp){

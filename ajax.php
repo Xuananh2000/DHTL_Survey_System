@@ -1,7 +1,7 @@
 <?php
 ob_start();
 $action = $_GET['action'];
-include 'admin_class.php';
+include 'config/admin_class.php';
 $crud = new Action();
 if($action == 'login'){
 	$login = $crud->login();
@@ -17,6 +17,12 @@ if($action == 'save_user'){
 	$save = $crud->save_user();
 	if($save)
 		echo $save;
+}
+if($action == 'signup'){
+	var_dump($crud->signup());
+	// $save = $crud->save_user();
+	// if($save)
+	// 	echo $save;
 }
 if($action == 'save_page_img'){
 	$save = $crud->save_page_img();

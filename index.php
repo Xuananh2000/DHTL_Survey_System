@@ -4,12 +4,12 @@
 <?php
 	if(!isset($_SESSION['login_id']))
 	    header('location:login.php');
-	include 'header.php'
+	include 'layouts/header.php'
 ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
-  <?php include 'topbar.php' ?>
-  <?php include 'sidebar.php' ?>
+  <?php include 'layouts/topbar.php' ?>
+  <?php include 'layouts/sidebar.php' ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -118,6 +118,6 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <!-- Bootstrap -->
-<?php include 'footer.php' ?>
+<?php include 'layouts/footer.php' ?>
 </body>
 </html>

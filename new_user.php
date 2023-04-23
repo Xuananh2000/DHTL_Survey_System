@@ -9,24 +9,17 @@
 					<div class="col-md-6 border-right">
 						<b class="text-muted">Personal Information</b>
 						<div class="form-group">
-							<label for="" class="control-label">First Name</label>
-							<input type="text" name="firstname" class="form-control form-control-sm" required value="<?php echo isset($firstname) ? $firstname : '' ?>">
+							<label class="control-label">Email</label>
+							<input type="email" class="form-control form-control-sm" name="email" required value="<?php echo isset($email) ? $email : '' ?>">
+							<small id="msg"></small>
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label">Middle Name</label>
-							<input type="text" name="middlename" class="form-control form-control-sm"  value="<?php echo isset($middlename) ? $middlename : '' ?>">
+							<label for="" class="control-label">Name</label>
+							<input type="text" name="name" id="name" class="form-control form-control-sm" required value="<?php echo isset($name) ? $name : '' ?>">
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label">Last Name</label>
-							<input type="text" name="lastname" class="form-control form-control-sm" required value="<?php echo isset($lastname) ? $lastname : '' ?>">
-						</div>
-						<div class="form-group">
-							<label for="" class="control-label">Contact No.</label>
-							<input type="text" name="contact" class="form-control form-control-sm" required value="<?php echo isset($contact) ? $contact : '' ?>">
-						</div>
-						<div class="form-group">
-							<label class="control-label">Address</label>
-							<textarea name="address" id="" cols="30" rows="4" class="form-control" required><?php echo isset($address) ? $address : '' ?></textarea>
+							<label for="" class="control-label">Phone number</label>
+							<input type="text" id ="phone" name="phone" class="form-control form-control-sm" value="<?php echo isset($phone) ? $phone : '' ?>">
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -34,28 +27,22 @@
 						<?php if($_SESSION['login_type'] == 1): ?>
 						<div class="form-group">
 							<label for="" class="control-label">User Role</label>
-							<select name="type" id="type" class="custom-select custom-select-sm">
-								<option value="3" <?php echo isset($type) && $type == 3 ? 'selected' : '' ?>>Subscriber</option>
-								<option value="2" <?php echo isset($type) && $type == 2 ? 'selected' : '' ?>>Staff</option>
+							<select name="type" id="type" class="custom-select custom-select-sm" required>
+								<option value="2" <?php echo isset($type) && $type == 2 ? 'selected' : '' ?>>User</option>
 								<option value="1" <?php echo isset($type) && $type == 1 ? 'selected' : '' ?>>Admin</option>
 							</select>
 						</div>
 						<?php else: ?>
-							<input type="hidden" name="type" value="3">
+							<input type="hidden" name="type" value="2">
 						<?php endif; ?>
 						<div class="form-group">
-							<label class="control-label">Email</label>
-							<input type="email" class="form-control form-control-sm" name="email" required value="<?php echo isset($email) ? $email : '' ?>">
-							<small id="#msg"></small>
-						</div>
-						<div class="form-group">
 							<label class="control-label">Password</label>
-							<input type="password" class="form-control form-control-sm" name="password" <?php echo isset($id) ? "":'required' ?>>
+							<input type="password" class="form-control form-control-sm" minlength="8" maxlength="20" name="password" <?php echo isset($id) ? "":'required' ?>>
 							<small><i><?php echo isset($id) ? "Leave this blank if you dont want to change you password":'' ?></i></small>
 						</div>
 						<div class="form-group">
 							<label class="label control-label">Confirm Password</label>
-							<input type="password" class="form-control form-control-sm" name="cpass" <?php echo isset($id) ? 'required' : '' ?>>
+							<input type="password" class="form-control form-control-sm" minlength="8" maxlength="20" name="cpass" >
 							<small id="pass_match" data-status=''></small>
 						</div>
 					</div>
@@ -70,6 +57,19 @@
 	</div>
 </div>
 <script>
+    // validate name
+    $('#name').on('input',function(){
+		var val = $(this).val()
+		val = val.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/[0-9]/g, '').replace(/\s+/g, ' ');
+		$(this).val(val)
+	})
+	
+	// validate phone
+	$('#phone').on('input',function(){
+			var val = $(this).val()
+			val = val.replace(/[^0-9 \,]/, '');
+			$(this).val(val)
+		})
 	$('[name="password"],[name="cpass"]').keyup(function(){
 		var pass = $('[name="password"]').val()
 		var cpass = $('[name="cpass"]').val()
@@ -120,7 +120,7 @@
 						location.replace('index.php?page=user_list')
 					},750)
 				}else if(resp == 2){
-					$('#msg').html("<div class='alert alert-danger'>Email already exist.</div>");
+					$('#msg').html('<i class="text-danger">Email already exist.</i>');
 					$('[name="email"]').addClass("border-danger")
 					end_load()
 				}
